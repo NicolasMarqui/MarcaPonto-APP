@@ -1,19 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Loading from './src/Components/Loading';
+import { NavigationContainer } from '@react-navigation/native';
+import { IntlProvider } from 'react-intl';
+import { Text } from 'react-native';
+import { Wrapper } from './global';
+import { useFonts } from '@use-expo/font';
+import { Poppins_700Bold, Poppins_400Regular } from '@expo-google-fonts/poppins';
+
+import Home from './src/Pages/Home';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	let [ fontsLoaded ] = useFonts({
+		Poppins_400Regular,
+		Poppins_700Bold
+	})
+
+	if(!fontsLoaded){
+		return <Loading />
+	}else{
+		return (
+			<NavigationContainer>
+				<Wrapper>
+					<Home />
+				</Wrapper>
+			</NavigationContainer>
+		  );
+	}
+}
