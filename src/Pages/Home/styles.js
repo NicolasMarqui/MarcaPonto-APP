@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.View`
     flex: 1;
-    width: 100%;
+    margin: 10px auto;
+    width: 98%;
     justify-content: center;
     align-items: center;
     position: relative;

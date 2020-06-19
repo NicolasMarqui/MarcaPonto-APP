@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.SafeAreaView`
+export const Container = styled.SafeAreaView`
     justify-content: center;
     margin: 0;
     flex: 1;
@@ -20,7 +20,12 @@ export const TitleSmall = styled.Text`
     color: #fff;
 `
 
+export const TitleSmallBlack = styled.Text`
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+`
+
 export const RegularBlock = styled.View`
     flex: 1;
-
 `

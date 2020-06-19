@@ -1,18 +1,20 @@
 import React from 'react';
 import { Wrapper, LogoBehind, TitleArea, Description} from './styles';
-import { TitleBig } from '../../../global';
+import { TitleBig, TitleSmall, TitleSmallBlack } from '../../../global';
+import i18n from '../../Languages/i18n';
 
 import BlockList from '../../Components/BlockList';
+import DigitalClock from '../../Components/DigitalClock';
 
 const logo = require('../../../assets/logo.png');
 
-const Home = () => (
+const Home = ({ navigation }) => (
     <Wrapper>
         <LogoBehind source={logo} />
 
         <TitleArea>
             <TitleBig>
-                Marca Ponto
+                {i18n.t('app_title')}
             </TitleBig>
 
             <Description>
@@ -20,7 +22,10 @@ const Home = () => (
             </Description>
         </TitleArea>
 
-        <BlockList />
+        <BlockList navigation={navigation}/>
+
+        <DigitalClock />
+
     </Wrapper>
 );
 

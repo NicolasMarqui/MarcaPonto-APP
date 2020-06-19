@@ -1,0 +1,25 @@
+{
+    "app_title": "Marca Ponto",
+    "home": {
+        "ponto_title": "Punch the clock",
+        "ponto_subtitle": "Click here to punch the clock",
+        "login_title": "Login",
+        "login_subtitle": "Admin Access",
+        "sobre_title": "About",
+        "sobre_subtitle": "Info",
+        "config_title": "Config",
+        "config_subtitle": "Lorem Ipsum"
+    },
+    "ponto": {
+        "face_not_found": "Não Identificamos seu rosto :(",
+        "try_again": "Tentar Novamente",
+        "use_digits": "Quero entrar com digitos",
+        "point_successful_entrance": "Entrada registrada",
+        "point_successful_exit": "Saída registrada"
+    },
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "forgot_password": "Esqueci minha senha"
+    }
+}

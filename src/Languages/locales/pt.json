@@ -1,0 +1,25 @@
+{
+    "app_title": "Marca Ponto",
+    "home": {
+        "ponto_title": "Ponto",
+        "ponto_subtitle": "Marque aqui seu ponto",
+        "login_title": "Login",
+        "login_subtitle": "Acesso Admin",
+        "sobre_title": "Sobre",
+        "sobre_subtitle": "Informações",
+        "config_title": "Configurações",
+        "config_subtitle": "Lorem Ipsum"
+    },
+    "ponto": {
+        "face_not_found": "Não Identificamos seu rosto :(",
+        "try_again": "Tentar Novamente",
+        "use_digits": "Quero entrar com digitos",
+        "point_successful_entrance": "Entrada registrada",
+        "point_successful_exit": "Saída registrada"
+    },
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "forgot_password": "Esqueci minha senha"
+    }
+}

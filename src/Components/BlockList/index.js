@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Block from '../Block';
 
+import i18n from '../../Languages/i18n';
+
 const BLOCK_INFO = [
     {
         id: 1,
-        title: 'Ponto',
-        description: 'Marque aqui seu ponto',
+        title: i18n.t('home.ponto_title'),
+        description: i18n.t('home.ponto_subtitle'),
         icon: {
             uri: require('../../../assets/icons/ponto.png'),
             isLarge: true
@@ -30,7 +32,7 @@ const BLOCK_INFO = [
         title: 'Sobre',
         description: 'Informações',
         icon: {
-            uri: require('../../../assets/icons/login.png'),
+            uri: require('../../../assets/icons/info.png'),
             isLarge: false
         },
         size: 1,
@@ -54,11 +56,11 @@ const BlockWrapper = styled.View`
     justify-content: space-between;
 `
 
-const BlockList = () => (
+const BlockList = ({ navigation }) => (
     <>
         <BlockWrapper>
             {BLOCK_INFO.map(b => (
-                <Block key={b.id} data={b}/>
+                <Block key={b.id} data={b} navigation={navigation}/>
             ))}
         </BlockWrapper>
     </>
