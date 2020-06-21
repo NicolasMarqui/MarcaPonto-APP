@@ -6,7 +6,7 @@ const DigitalClock = () => {
     const [ currentTime, setCurrentTime ] = useState(null);
     const [ currentDay, setCurrentDay ] = useState(null);
 
-    const DAYS = ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo'];
+    const DAYS = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
 
     const getCurrentTime = () => {
         let hour = new Date().getHours();

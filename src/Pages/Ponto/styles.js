@@ -16,26 +16,15 @@ export const SnapPic = styled.TouchableOpacity`
     border-radius: 25px;
 `
 
-export const ModalInside = styled.View`
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    position: relative;
-`
-
 export const CloseModal = styled.TouchableOpacity`
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: -6px;
+    z-index:3;
 `
 
-export const Image = styled.Image`
-    width: 95%;
-    margin: 0 auto;
-    height: 500px;
-`
-
-export const Date = styled.Text`
-    font-size: 15px;
-    font-weight: 400;
+export const LoadingModalWrapper = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 `
