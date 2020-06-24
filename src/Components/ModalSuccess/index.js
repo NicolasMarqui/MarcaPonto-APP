@@ -1,18 +1,20 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import { Dimensions } from 'react-native';
 import LottieView from "lottie-react-native";
 import {ModalInside, Image, Date, TitleAndLoading, SidSmallImageWrapper} from './styles';
 import { TitleSmallBlack } from '../../../global';
+import { MainContext } from '../../Contexts/MainContext';
 
 import TipoPonto from '../TipoPonto';
 
 const ModalSuccess = ({ picture, navigation}) => {
 
+    const { setErrorAttemps } = useContext(MainContext);
     const LOADING = require('../../../assets/animations/loading.json');
-
     const [ pictureHidden, setPictureHidden ] = useState(false);
 
     useEffect(() => {
+        setErrorAttemps(0)
         window.setInterval(hidePicture, 5000);
     }, [])
     

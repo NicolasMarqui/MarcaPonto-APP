@@ -18,9 +18,12 @@ export const SnapPic = styled.TouchableOpacity`
 
 export const CloseModal = styled.TouchableOpacity`
     position: absolute;
-    top: 20px;
-    right: -6px;
+    top: 0;
+    right: 0;
     z-index:3;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 15px;
 `
 
 export const LoadingModalWrapper = styled.View`

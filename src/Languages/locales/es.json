@@ -1,0 +1,38 @@
+{
+    "app_title": "Marca Ponto",
+    "default":{
+        "ponto": "Ponto",
+        "login": "Login",
+        "config": "Config"
+    },
+    "home": {
+        "screen_name_ponto": "Ponto",
+        "ponto_title": "Punto",
+        "ponto_subtitle": "Ayuda me",
+        "login_title": "Login",
+        "login_subtitle": "Admin Access",
+        "sobre_title": "About",
+        "sobre_subtitle": "Info",
+        "config_title": "Configuración",
+        "config_subtitle": "Lorem Ipsum"
+    },
+    "ponto": {
+        "face_not_found": "Não Identificamos seu rosto :(",
+        "try_again": "Tentar Novamente",
+        "use_digits": "Quero entrar com digitos",
+        "point_successful_entrance": "Entrada registrada",
+        "point_successful_exit": "Saída registrada"
+    },
+    "login": {
+        "email": "Email",
+        "password": "Password",
+        "forgot_password": "Esqueci minha senha"
+    },
+    "languages": {
+        "pt": "Portuguese",
+        "en": "English",
+        "fr": "French",
+        "ger": "German",
+        "esp": "Spanish"
+    }
+}

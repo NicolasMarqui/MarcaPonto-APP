@@ -1,6 +1,12 @@
 {
     "app_title": "Marca Ponto",
+    "default":{
+        "ponto": "Ponto",
+        "login": "Login",
+        "config": "Config"
+    },
     "home": {
+        "screen_name_ponto": "Ponto",
         "ponto_title": "Punch the clock",
         "ponto_subtitle": "Click here to punch the clock",
         "login_title": "Login",
@@ -21,5 +27,12 @@
         "email": "Email",
         "password": "Password",
         "forgot_password": "Esqueci minha senha"
+    },
+    "languages": {
+        "pt": "Portuguese",
+        "en": "English",
+        "fr": "French",
+        "ger": "German",
+        "esp": "Spanish"
     }
 }

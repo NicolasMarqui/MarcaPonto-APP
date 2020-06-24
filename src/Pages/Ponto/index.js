@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import Modal from 'react-native-modal';
 import { PontoWrapper, SnapPic, CloseModal, LoadingModalWrapper} from './styles';
 import { TitleSmallBlack } from '../../../global';
@@ -9,15 +9,16 @@ import LottieView from "lottie-react-native";
 import NoAccess from '../../Components/NoAccess';
 import ModalSuccess from '../../Components/ModalSuccess';
 import ModalError from '../../Components/ModalError';
+import { MainContext } from '../../Contexts/MainContext';
 
 const LOADING = require('../../../assets/animations/loading.json');
 
 const Ponto = ({ navigation }) => {
+    const { modalOpen, setModalOpen } = useContext(MainContext)
     const camRef = useRef(null);
     const [type, setType] = useState(Camera.Constants.Type.front);
     const [hasPermission, setHasPermission] = useState(null);
     const [capturedPhoto, setCapturedPhoto] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
 
     // Teste only
     const [ photoReconhecida, setPhotoReconhecida ] = useState(false);
@@ -43,7 +44,7 @@ const Ponto = ({ navigation }) => {
             const data = await camRef.current.takePictureAsync();
             setCapturedPhoto(data.uri);
             setModalOpen(true);
-            setPhotoReconhecida(true);
+            setPhotoReconhecida(false);
         }
     }
 
@@ -81,7 +82,15 @@ const Ponto = ({ navigation }) => {
                     }
 
                     {
-                        !loadingPicture && photoReconhecida ? <ModalSuccess picture={capturedPhoto} navigation={navigation} /> : <ModalError navigation={navigation}/>
+                        !loadingPicture && photoReconhecida 
+                        
+                        ? 
+                        
+                        <ModalSuccess picture={capturedPhoto} navigation={navigation} /> 
+                        
+                        : 
+                        
+                        <ModalError navigation={navigation} picture={capturedPhoto}/>
                     }
         
                 </Modal>

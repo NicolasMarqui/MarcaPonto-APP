@@ -3,7 +3,7 @@ import { Platform, NativeModules  } from 'react-native';
 
 export const MainContext = createContext();
 
-export const MainProvider = ({ props }) => {
+export const MainProvider = props => {
 
     const deviceLanguage = Platform.OS === 'ios'
         ? NativeModules.SettingsManager.settings.AppleLocale ||
@@ -13,12 +13,22 @@ export const MainProvider = ({ props }) => {
     const [ currentLanguage, setCurrentLanguage ] = useState(deviceLanguage);
     const [ isAdmLogged, setIsAdminLogged ] = useState(false);
     const [ errorAttemps, setErrorAttemps ] = useState(0);
+    const [ modalOpen , setModalOpen ] = useState(false);
+
+    const contextValue = {
+        currentLanguage,
+        setCurrentLanguage,
+        errorAttemps,
+        setErrorAttemps,
+        isAdmLogged,
+        setIsAdminLogged,
+        modalOpen,
+        setModalOpen
+    }
 
     return (
-        <MainContext.Provider currentLanguage={currentLanguage}>
-            {
-                props.children
-            }
+        <MainContext.Provider value={contextValue}>
+            { props.children }
         </MainContext.Provider>
     );
 }
