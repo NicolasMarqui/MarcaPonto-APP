@@ -1,61 +1,37 @@
 import React, {useState, useEffect }from 'react';
 import { View, Text} from 'react-native';
+import moment from 'moment';
+import AsyncStorage from '@react-native-community/async-storage';
+
+import localization from "moment/locale/pt-br";
+
+const withLocale = require('../../Functions/moment-with-locales');
 
 const DigitalClock = () => {
 
-    const [ currentTime, setCurrentTime ] = useState(null);
-    const [ currentDay, setCurrentDay ] = useState(null);
+    const [ help, setHelp ] = useState('')
 
-    const DAYS = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
-
-    const getCurrentTime = () => {
-        let hour = new Date().getHours();
-        let minutes = new Date().getMinutes();
-        let seconds = new Date().getSeconds();
-        let am_pm = 'pm';
-
-        if (minutes < 10) {
-            minutes = '0' + minutes;
-        }
-
-        if (seconds < 10) {
-            seconds = '0' + seconds;
-        }
-
-        if (hour > 12) {
-            hour = hour - 12;
-        }
-
-        if (hour == 0) {
-            hour = 12;
-        }
-
-        if (new Date().getHours() < 12) {
-            am_pm = 'am';
-        }
-
-        setCurrentTime(hour + ':' + minutes + ':' + seconds + ' ' + am_pm);
-
-        DAYS.map((item, key) => {
-            if (key == new Date().getDay()) {
-              setCurrentDay(item.toUpperCase());
-            }
-          })
+    const currentTime = () => {
+        let time = moment(new Date()).format('Do MMMM YYYY, h:mm:ss a');
+        setHelp(time);
+        return time;
     }
 
     useEffect(() => {
+
+        moment.updateLocale('pt-br', localization);
+        
         let timer = setInterval(() => {
-            getCurrentTime();
+            currentTime();
           }, 1000);
     }, []);
     
     return(
         <View>
             <Text>
-                {currentDay}
-            </Text>
-            <Text>
-                {currentTime}
+                {
+                    help
+                }
             </Text>
         </View>
     )

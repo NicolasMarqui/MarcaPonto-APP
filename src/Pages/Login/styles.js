@@ -15,15 +15,18 @@ export const  Text = styled.Text`
 
 export const TitleArea = styled.View`
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 70px;
+    flex: 1;
 `
 
 export const FormArea = styled.View`
     width: 100%;
     justify-content: center;
     align-items: center;
+    flex: 2;
+    position: relative;
+    z-index: 10;
 `
 
 export const LogoBehind = styled.Image`
@@ -45,7 +48,7 @@ export const Input = styled.TextInput`
     background-color: #fff;
     width: 100%;
     border-radius: 25px;
-    border: 1px solid #000;
+    border: 2px solid  ${props => props.hasError};
     margin: 10px 0;
 `
 
@@ -55,9 +58,16 @@ export const Frag = styled.View`
     width: 80%;
 `
 
-export const LoginButton = styled.Button`
-    width: 60%;
+export const LoginButton = styled.TouchableOpacity`
+    width: 80%;
+    margin: 50px auto;
     background-color: #8D0C17;
     border-radius: 25px;
-    margin-top: 100px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+`
+
+export const LoaderWrapper = styled.View`
+    flex: 2;
 `

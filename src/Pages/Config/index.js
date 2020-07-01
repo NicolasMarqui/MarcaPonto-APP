@@ -13,10 +13,6 @@ import i18n from '../../Languages/i18n';
 
 const Config = () => {
 
-    useEffect(() => {
-        console.log(`Language Context At first: ${currentLanguage}`)
-    }, [])
-
     const LanguageList = [
         {
             "id": 1,
@@ -45,7 +41,7 @@ const Config = () => {
         {
             "id": 5,
             "name": i18n.t('languages.esp'),
-            "code": "MX",
+            "code": "ES",
             "toVerify": 'ES' 
         }
     ]
@@ -53,6 +49,8 @@ const Config = () => {
     const { currentLanguage, setCurrentLanguage } = useContext(MainContext);
 
     const currentFlag = LanguageList.filter(ll => ll.toVerify === getLocal(currentLanguage).toUpperCase())[0].code;
+
+    console.log(currentFlag)
 
     const flag = `https://www.countryflags.io/${currentFlag}/flat/64.png`;
 
@@ -68,6 +66,7 @@ const Config = () => {
                 style: 'cancel',
               },
               { text: 'OK', onPress: async () => {
+                setCurrentLanguage(value)
 
                 try {
                     await AsyncStorage.setItem('language', value);

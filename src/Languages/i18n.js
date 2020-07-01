@@ -10,7 +10,7 @@ import en from './locales/en.json';
 import pt from './locales/pt.json';
 import es from './locales/es.json';
 import de from './locales/de.json';
-import fr from './locales/de.json';
+import fr from './locales/fr.json';
 
  const deviceLanguage = Platform.OS === 'ios'
         ? NativeModules.SettingsManager.settings.AppleLocale ||

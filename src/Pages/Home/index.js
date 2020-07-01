@@ -1,5 +1,5 @@
 import React, {useEffect, useContext } from 'react';
-import { Wrapper, LogoBehind, TitleArea, Description} from './styles';
+import { Wrapper, LogoBehind, TitleArea, Description, WrapperClock} from './styles';
 import { TitleBig, TitleSmall, TitleSmallBlack } from '../../../global';
 import i18n from '../../Languages/i18n';
 import { MainContext } from '../../Contexts/MainContext';
@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
         // })
 
         // return checkLocal
+        console.log(currentLanguage)
         
     }, [navigation])
 
@@ -61,7 +62,9 @@ const Home = ({ navigation }) => {
     
             <BlockList navigation={navigation} i18n={i18n}/>
     
-            <DigitalClock />
+            <WrapperClock>
+                <DigitalClock />
+            </WrapperClock>
     
         </Wrapper>
     )

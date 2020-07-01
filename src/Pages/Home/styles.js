@@ -29,3 +29,12 @@ export const Description = styled.Text`
     font-size: 20px;
     font-weight: 400;   
 `
+
+export const WrapperClock = styled.View`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+`

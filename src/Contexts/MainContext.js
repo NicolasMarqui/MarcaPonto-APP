@@ -11,19 +11,22 @@ export const MainProvider = props => {
         : NativeModules.I18nManager.localeIdentifier;
 
     const [ currentLanguage, setCurrentLanguage ] = useState(deviceLanguage);
-    const [ isAdmLogged, setIsAdminLogged ] = useState(false);
+    const [ isUserLogged , setIsUserLogged ] = useState(false);
     const [ errorAttemps, setErrorAttemps ] = useState(0);
     const [ modalOpen , setModalOpen ] = useState(false);
+    const [ loggedUserInfo, setLoggedUserInfo ] = useState(null);
 
     const contextValue = {
         currentLanguage,
         setCurrentLanguage,
         errorAttemps,
         setErrorAttemps,
-        isAdmLogged,
-        setIsAdminLogged,
+        isUserLogged,
+        setIsUserLogged,
         modalOpen,
-        setModalOpen
+        setModalOpen,
+        loggedUserInfo,
+        setLoggedUserInfo
     }
 
     return (
