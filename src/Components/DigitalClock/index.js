@@ -12,7 +12,7 @@ const DigitalClock = () => {
     const [ help, setHelp ] = useState('')
 
     const currentTime = () => {
-        let time = moment(new Date()).format('Do MMMM YYYY, h:mm:ss a');
+        let time = moment(new Date()).format('D MMMM YYYY, h:mm:ss a');
         setHelp(time);
         return time;
     }

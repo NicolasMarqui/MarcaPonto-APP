@@ -6,33 +6,33 @@ import Modal from 'react-native-modal';
 const PontoInfo = ({ ponto }) => {
 
     
-    const { type, day, time } = ponto;
+    // const { type, day, time } = ponto;
 
-    const Alltypes = [
-        {
-            id: 1,
-            name: 'ENTRY',
-            icon: require('../../../assets/icons/entry.png'),
-        },
-        {
-            id: 2,
-            name: 'LUNCH',
-            icon: require('../../../assets/icons/lunch.png'),
-        },
-        {
-            id: 3,
-            name: 'LEAVE',
-            icon: require('../../../assets/icons/leave.png'),
-        },
-    ]
+    // const Alltypes = [
+    //     {
+    //         id: 1,
+    //         name: 'ENTRY',
+    //         icon: require('../../../assets/icons/entry.png'),
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'LUNCH',
+    //         icon: require('../../../assets/icons/lunch.png'),
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'LEAVE',
+    //         icon: require('../../../assets/icons/leave.png'),
+    //     },
+    // ]
 
-    const returnTypeIcon = (arr, individual_type) => {
-        return arr.filter((t) => t.name === individual_type)[0].icon
-    }
+    // const returnTypeIcon = (arr, individual_type) => {
+    //     return arr.filter((t) => t.name === individual_type)[0].icon
+    // }
 
     return(
         <Wrapper>
-            <IconImage source={ returnTypeIcon(Alltypes, type) } />
+            {/* <IconImage source={ returnTypeIcon(Alltypes, type) } />
 
             <WrapperText>
                 <PontoTitle>
@@ -46,7 +46,10 @@ const PontoInfo = ({ ponto }) => {
 
             <ArrowIcon>
                 <Entypo name="arrow-with-circle-right" size={24} color="black" />
-            </ArrowIcon>
+            </ArrowIcon> */}
+            <PontoTitle>
+                Ponto
+            </PontoTitle>
         </Wrapper>
     );
 }

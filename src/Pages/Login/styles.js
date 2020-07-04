@@ -48,7 +48,7 @@ export const Input = styled.TextInput`
     background-color: #fff;
     width: 100%;
     border-radius: 25px;
-    border: 2px solid  ${props => props.hasError};
+    
     margin: 10px 0;
 `
 

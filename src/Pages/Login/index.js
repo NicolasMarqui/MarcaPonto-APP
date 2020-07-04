@@ -21,20 +21,16 @@ const Login = ({ navigation }) => {
 
     useEffect(() => {
         checkIfUserIsLogged();
-        
-        if(isUserLogged){
-            navigation.replace('Dashboard')
-        }
-
     }, [])
 
     const checkIfUserIsLogged = async () => {
         await AsyncStorage.getItem('userLogged')
             .then(data => {
                 if(data === "true"){
-                    console.log(data)
                     setIsLoading(true);
-                    setIsUserLogged(true)
+                    setIsUserLogged(true);
+
+                    navigation.replace('Dashboard')
                 }else{
                     setIsLoading(false);
                     setIsUserLogged(false)
@@ -73,8 +69,11 @@ const Login = ({ navigation }) => {
                             password: password
                          })
                             .then(async (data) => {
-                                await AsyncStorage.setItem('userLogged', true);
+                                await AsyncStorage.setItem('userLogged', "true");
+                                await AsyncStorage.setItem('userToken', data.headers['authorization']);
+                                await AsyncStorage.setItem('userLoggedUsername', username);
                                 setIsUserLogged(true);
+                                navigation.replace('Dashboard')
                             })
                             .catch(err => {
                                 Toast.showWithGravity('Usuário ou senha incorretos', Toast.LONG, Toast.CENTER);

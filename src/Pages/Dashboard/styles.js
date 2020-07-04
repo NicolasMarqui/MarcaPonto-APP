@@ -44,3 +44,8 @@ export const RedDetail = styled.View`
     background-color: #8E0C18;
     margin-right: 5px;
 `
+
+export const LoaderWrapper = styled.View`
+    justify-content: center;
+    align-items: center;
+`

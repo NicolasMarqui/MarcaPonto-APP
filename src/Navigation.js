@@ -29,7 +29,10 @@ const Navigation = () => (
         { 
             headerShown: false,
             headerRight: () => <ConfigWrapperDashboard onPress={async () => {
+                await AsyncStorage.setItem('userLoggedUsername', "")
                 await AsyncStorage.setItem('userLogged', "false")
+                await AsyncStorage.setItem('userToken', "");
+                await AsyncStorage.setItem('userLoggedInfo', "");
                 navigation.replace('Login')
             }}>
                 <AntDesign name="logout" size={25} color="black" />
