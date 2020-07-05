@@ -76,7 +76,7 @@ const Dashboard = ({ navigation }) => {
         console.log(`Token do getAllPoints: ${token}`)
         await axios.get(`${ALL_POINTS_ENDPOINT}/${id}`, { headers: { 'Authorization': token } })
             .then(points => {
-                console.log(points.data)
+                // console.log(points.data)
                 setAllPoints(points.data);
                 setUserPontosLoaded(true);
             })
@@ -98,7 +98,7 @@ const Dashboard = ({ navigation }) => {
                         {capitalizeString(currentUsername)}
                     </TitleSmallBlack>
                     <Description>
-                        Aqui vc pode ver todos seus pontos e informações a mais sobre seu perfil, {currentUserId}
+                        Aqui vc pode ver todos seus pontos e informações a mais sobre seu perfil
                     </Description>
                 </TitleArea> :
 
@@ -130,7 +130,7 @@ const Dashboard = ({ navigation }) => {
 
                     allPoints.length !== 0 ? 
                     
-                    allPoints.map(p => <PontoInfo key={p.id} ponto={p}/>) 
+                    allPoints.reverse().map(p => <PontoInfo key={p.id} ponto={p}/>) 
                     
                     : 
                     

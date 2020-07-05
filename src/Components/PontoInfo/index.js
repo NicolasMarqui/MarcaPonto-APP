@@ -1,55 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Wrapper, IconImage, WrapperText, PontoTitle, HourTitle, ArrowIcon} from './styles';
-import { Entypo } from '@expo/vector-icons';
-import Modal from 'react-native-modal';
+import moment from 'moment';
 
 const PontoInfo = ({ ponto }) => {
 
+    useEffect(() => {
+        // returnTypeIcon(Alltypes, tipoDoRegistro)
+        console.log(tipoDoRegistro)
+    })
+
     
-    // const { type, day, time } = ponto;
+    const { data , horario , tipoDoRegistro, aprovado} = ponto;
 
-    // const Alltypes = [
-    //     {
-    //         id: 1,
-    //         name: 'ENTRY',
-    //         icon: require('../../../assets/icons/entry.png'),
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'LUNCH',
-    //         icon: require('../../../assets/icons/lunch.png'),
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'LEAVE',
-    //         icon: require('../../../assets/icons/leave.png'),
-    //     },
-    // ]
+    const Alltypes = [
+        {
+            id: 1,
+            name: 'Início da Jornada',
+            icon: require('../../../assets/icons/entry.png'),
+        },
+        {
+            id: 2,
+            name: 'Início do Intervalo',
+            icon: require('../../../assets/icons/lunch.png'),
+        },
+        {
+            id: 3,
+            name: 'Fim da Jornada',
+            icon: require('../../../assets/icons/leave.png'),
+        },
+        {
+            id: 4,
+            name: 'Fim do Intervalo',
+            icon: require('../../../assets/icons/lunch.png'),
+        },
+        {
+            id: 5,
+            name: 'Indefinido',
+            icon: require('../../../assets/icons/lunch.png'),
+        },
+    ]
 
-    // const returnTypeIcon = (arr, individual_type) => {
-    //     return arr.filter((t) => t.name === individual_type)[0].icon
-    // }
+    const returnTypeIcon = (arr, individual_type) => {
+        if(individual_type !== undefined){
+            return arr.filter((t) => t.name === individual_type)[0].icon
+        }
+    }
 
     return(
         <Wrapper>
-            {/* <IconImage source={ returnTypeIcon(Alltypes, type) } />
+            <IconImage source={ returnTypeIcon(Alltypes, tipoDoRegistro) } />
 
             <WrapperText>
                 <PontoTitle>
-                    {day}
+                    {moment(data).format('DD/MM/YYYY')}
                 </PontoTitle>
 
                 <HourTitle>
-                    {time}
+                    {horario}
                 </HourTitle>
             </WrapperText>
 
-            <ArrowIcon>
-                <Entypo name="arrow-with-circle-right" size={24} color="black" />
-            </ArrowIcon> */}
-            <PontoTitle>
-                Ponto
-            </PontoTitle>
         </Wrapper>
     );
 }

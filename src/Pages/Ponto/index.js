@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef, useContext} from 'react';
 import Modal from 'react-native-modal';
-import { PontoWrapper, SnapPic, CloseModal, LoadingModalWrapper, TitleCPF, WrapperUserNotLogged, TitleNotLogged, GoToLogin, GoToWrapper, WrapperUserLogged, WrapperButtonMarcar, WrapperShowTime, TextHour} from './styles';
+import { PontoWrapper, SnapPic, CloseModal, LoadingModalWrapper, TitleCPF, WrapperUserNotLogged, TitleNotLogged, GoToLogin, GoToWrapper, WrapperUserLogged, WrapperButtonMarcar, WrapperShowTime, TextHour, WrapperShowRegistros} from './styles';
 import { TitleSmallBlack, TitleBig, TitleSmall} from '../../../global';
 import { Camera } from 'expo-camera';
 import { Entypo, AntDesign} from '@expo/vector-icons';
@@ -46,6 +46,25 @@ const Ponto = ({ navigation }) => {
     const ERROR = require('../../../assets/animations/error.json');
 
     const NEW_PONTO_ENDPOINT = 'https://ws-marcaponto.herokuapp.com/api/v1/ponto';
+
+    const TIPOS_REGISTRO = [
+        {
+            id: 0,
+            title: "Início da Jornada"
+        },
+        {
+            id: 1,
+            title: "Início do Intervalo"
+        },
+        {
+            id: 2,
+            title: "Fim do Intervalo"
+        },
+        {
+            id: 3,
+            title: "Fim da Jornada"
+        },
+    ]
 
     const checkIfUserIsLogged = async () => {
         await AsyncStorage.getItem('userLogged')
@@ -106,32 +125,31 @@ const Ponto = ({ navigation }) => {
 
     }, []);
 
-    const marcarPonto = async () => {
+    const marcarPonto = async (registroID) => {
 
         let day = new Date().getDay();
         let date = moment(new Date()).format(`${day < 10 ? '0' : ''}D/MM/YYYY`);
-        let horario = moment().format('LTS');
+        let horario = moment().format('LT');
 
         const newPonto = {
             colaboradorId: loggedUserID,
-            tipoDoRegistroId: 1,
+            tipoDoRegistroId: Number(registroID),
             data: date.toString(),
             horario: horario.toString()
         }
 
+        setPontoAttempt(true)
+
         await axios.post(NEW_PONTO_ENDPOINT, newPonto, { headers: { 'Authorization': loggedUserToken }})
             .then(response => {
-                setPontoAttempt(true)
                 setPontoSuccess(true)
                 Toast.showWithGravity('Ponto gravado com sucesso :)', Toast.LONG, Toast.CENTER);
             })
             .catch(err => {
-                setPontoAttempt(true)
-                setPontoSuccess(false)
+                setPontoSuccess(false);
                 Toast.showWithGravity('Ops, algo deu errado :(', Toast.LONG, Toast.CENTER);
             })
-
-            
+ 
     }
 
     if(hasPermission === null){
@@ -220,15 +238,7 @@ const Ponto = ({ navigation }) => {
                     isUserLogged ? 
                     
                     <WrapperUserLogged>
-                        <LottieView 
-                            autoPlay
-                            loop={true} 
-                            source={WORKING} 
-                            style={{
-                                width: 270,
-                                height: 270,
-                            }}
-                        />
+
                         <WrapperShowTime>
                             <TitleBig>
                                 {currentDate ? currentDate : 
@@ -258,25 +268,43 @@ const Ponto = ({ navigation }) => {
                             </TextHour>
                         </WrapperShowTime>
 
+                        <LottieView 
+                            autoPlay
+                            loop={true} 
+                            source={WORKING} 
+                            style={{
+                                width: 170,
+                                height: 170,
+                            }}
+                        />
+
                         {
                             pontoAttempt ? 
-                            <LottieView 
-                                autoPlay
-                                loop={false} 
-                                source={pontoSuccess ? SUCCESS : ERROR} 
-                                style={{
-                                    width: 270,
-                                    height: 270,
-                                }}
-                                onAnimationFinish={() => setPontoAttempt(false)}
-                            />
+                            
+                                <LottieView 
+                                    autoPlay
+                                    loop={false} 
+                                    source={pontoSuccess ? ERROR : SUCCESS} 
+                                    style={{
+                                        width: 270,
+                                        height: 270,
+                                    }}
+                                    onAnimationFinish={() => setPontoAttempt(false)}
+                                />
+
                             :
 
-                            <WrapperButtonMarcar onPress={marcarPonto}>
-                                <TitleSmall>
-                                    Marcar Ponto
-                                </TitleSmall>
-                            </WrapperButtonMarcar>
+                            <WrapperShowRegistros>
+                                {
+                                    TIPOS_REGISTRO.map(r => (
+                                        <WrapperButtonMarcar onPress={() => marcarPonto(r.id)} key={r.id}>
+                                            <TitleSmall>
+                                                {r.title}
+                                            </TitleSmall>
+                                        </WrapperButtonMarcar>
+                                    ))
+                                }
+                            </WrapperShowRegistros>
                         }
 
                     </WrapperUserLogged>

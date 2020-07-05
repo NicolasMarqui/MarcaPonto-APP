@@ -69,7 +69,7 @@ export const WrapperUserLogged = styled.View`
 export const WrapperButtonMarcar = styled.TouchableOpacity`
     width: 80%;
     align-items: center;
-    margin: 40px auto;
+    margin: 10px auto;
     background-color: #8D0C17;
     padding: 12px 0;
     border-radius: 25px;
@@ -79,6 +79,14 @@ export const WrapperShowTime = styled.View`
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin: -15px 0 15px;
+`
+
+export const WrapperShowRegistros = styled.View`
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 `
 
 export const TextHour = styled.Text`
