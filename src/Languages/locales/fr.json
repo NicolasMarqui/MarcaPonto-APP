@@ -7,32 +7,37 @@
     },
     "home": {
         "screen_name_ponto": "Ponto",
-        "ponto_title": "Bounjour",
-        "ponto_subtitle": "Click here to punch the clock",
+        "ponto_title": "Je Pointe",
+        "ponto_subtitle": "Cliquez ici pour toucher l'endroit",
         "login_title": "Login",
-        "login_subtitle": "Admin Access",
-        "sobre_title": "About",
-        "sobre_subtitle": "Info",
-        "config_title": "Config",
-        "config_subtitle": "Lorem Ipsum"
+        "login_subtitle": "Accéder à votre compte",
+        "sobre_title": "Sur",
+        "sobre_subtitle": "Informations ",
+        "config_title": "Paramètres",
+        "config_subtitle": "Cliquez ici pour changer la langue"
     },
     "ponto": {
-        "face_not_found": "Não Identificamos seu rosto :(",
-        "try_again": "Tentar Novamente",
-        "use_digits": "Quero entrar com digitos",
-        "point_successful_entrance": "Entrada registrada",
-        "point_successful_exit": "Saída registrada"
+        "option_1": "Début du voyage",
+        "option_2": "Début de l'intervalle",
+        "option_3": "Fin de plage",
+        "option_4": "Fin du voyage",
+        "toast_error": "Ops, algo deu errado :(",
+        "toast_success": "Point marqué avec succès :)"
     },
     "login": {
         "email": "Email",
         "password": "Password",
         "forgot_password": "Esqueci minha senha"
     },
+    "config":{
+        "change_to": "Changez la langue en",
+        "will_reset": "MarcaPonto va redémarrer"
+    },
     "languages": {
-        "pt": "Portuguese",
-        "en": "English",
-        "fr": "French",
-        "ger": "German",
-        "esp": "Spanish"
+        "pt": "Portugais",
+        "en": "Anglais",
+        "fr": "Français",
+        "ger": "Allemand",
+        "esp": "Espagnol"
     }
 }

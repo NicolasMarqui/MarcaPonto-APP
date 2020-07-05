@@ -10,23 +10,28 @@
         "ponto_title": "Punch the clock",
         "ponto_subtitle": "Click here to punch the clock",
         "login_title": "Login",
-        "login_subtitle": "Admin Access",
+        "login_subtitle": "Check your account",
         "sobre_title": "About",
         "sobre_subtitle": "Info",
-        "config_title": "Config",
-        "config_subtitle": "Lorem Ipsum"
+        "config_title": "Settings",
+        "config_subtitle": "Change the language"
     },
     "ponto": {
-        "face_not_found": "Não Identificamos seu rosto :(",
-        "try_again": "Tentar Novamente",
-        "use_digits": "Quero entrar com digitos",
-        "point_successful_entrance": "Entrada registrada",
-        "point_successful_exit": "Saída registrada"
+        "option_1": "Beginning of the Work day",
+        "option_2": "Beginning of Break",
+        "option_3": "End of Break",
+        "option_4": "End of the Work day",
+        "toast_error": "Ops, algo deu errado :(",
+        "toast_success": "Ponto marcado com sucesso :)"
     },
     "login": {
         "email": "Email",
         "password": "Password",
         "forgot_password": "Esqueci minha senha"
+    },
+    "config":{
+        "change_to": "Change language to",
+        "will_reset": "MarcaPonto will restart"
     },
     "languages": {
         "pt": "Portuguese",

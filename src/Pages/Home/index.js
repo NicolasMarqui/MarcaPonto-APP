@@ -14,24 +14,6 @@ const logo = require('../../../assets/logo.png');
 const Home = ({ navigation }) => {
 		
     const { currentLanguage, setCurrentLanguage } = useContext(MainContext)
-    
-    useEffect(() => {
-        // const checkLocal = navigation.addListener('focus', async () => {            
-        //     try {
-        //         await AsyncStorage.getItem('language').then(data => {
-        //             i18n.locale = data;
-        //             console.log(`Home ${i18n.currentLocale()}`)
-        //             return i18n;
-        //         })
-        //     } catch (e) {
-        //         i18n.locale = 'pt-BR';
-        //     }
-        // })
-
-        // return checkLocal
-        console.log(currentLanguage)
-        
-    }, [navigation])
 
     const pleaseWork = async () => {
         try {

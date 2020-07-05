@@ -28,8 +28,8 @@ const BlockList = ({ navigation }) => {
         },
         {
             id: 2,
-            title: 'Login',
-            description: 'Relatórios',
+            title: i18n.t('home.login_title'),
+            description: i18n.t('home.login_subtitle'),
             icon: {
                 uri: require('../../../assets/icons/login.png'),
                 isLarge: false
@@ -40,8 +40,8 @@ const BlockList = ({ navigation }) => {
         },
         {
             id: 3,
-            title: 'Sobre',
-            description: 'Informações',
+            title: i18n.t('home.sobre_title'),
+            description: i18n.t('home.sobre_subtitle'),
             icon: {
                 uri: require('../../../assets/icons/info.png'),
                 isLarge: false
@@ -53,7 +53,7 @@ const BlockList = ({ navigation }) => {
         {
             id: 4,
             title: i18n.t('home.config_title'),
-            description: 'Lorem Ipsum',
+            description: i18n.t('home.config_subtitle'),
             icon: undefined,
             defaultTitle: i18n.t('default.config'),
             size: 2,

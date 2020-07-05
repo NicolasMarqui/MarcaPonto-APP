@@ -16,8 +16,7 @@ export const WrapperCurrentLang = styled.View`
     align-items: center;
     box-shadow: 2px 2px #000;
     position: absolute;
-    bottom: 0;
-    background-color: #222;
+    bottom: 20px;
 `
 
 export const WrapperAllLangs = styled.View`

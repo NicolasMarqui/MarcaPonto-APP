@@ -13,6 +13,8 @@ import i18n from '../../Languages/i18n';
 
 const Config = () => {
 
+    const LOGO = require('../../../assets/logo.png')
+
     const LanguageList = [
         {
             "id": 1,
@@ -47,18 +49,11 @@ const Config = () => {
     ]
 
     const { currentLanguage, setCurrentLanguage } = useContext(MainContext);
-
-    const currentFlag = LanguageList.filter(ll => ll.toVerify === getLocal(currentLanguage).toUpperCase())[0].code;
-
-    console.log(currentFlag)
-
-    const flag = `https://www.countryflags.io/${currentFlag}/flat/64.png`;
-
     const languageLocal = async (value, name) => {
 
         Alert.alert(
-            `Mudar idioma para ${name}`,
-            'O app irá resetar',
+            `${i18n.t('config.change_to')} ${name}?`,
+            `${i18n.t('config.will_reset')}`,
             [
               {
                 text: 'Cancel',
@@ -87,11 +82,7 @@ const Config = () => {
             <Wrapper>
                 
                 <WrapperCurrentLang>
-                    <ReallySmallTitle>
-                        Linguagem atual
-                    </ReallySmallTitle>
-
-                    <Image source={{ uri: flag }} />
+                    <Image source={LOGO} />
                 </WrapperCurrentLang>
 
                 <WrapperOptions>

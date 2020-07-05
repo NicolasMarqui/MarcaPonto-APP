@@ -67,7 +67,7 @@ export const WrapperUserLogged = styled.View`
 `
 
 export const WrapperButtonMarcar = styled.TouchableOpacity`
-    width: 80%;
+    width: 90%;
     align-items: center;
     margin: 10px auto;
     background-color: #8D0C17;

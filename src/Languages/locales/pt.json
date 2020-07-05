@@ -10,27 +10,32 @@
         "ponto_title": "Ponto",
         "ponto_subtitle": "Marque aqui seu ponto",
         "login_title": "Login",
-        "login_subtitle": "Acesso Admin",
+        "login_subtitle": "Veja seus pontos",
         "sobre_title": "Sobre",
         "sobre_subtitle": "Informações",
         "config_title": "Configurações",
-        "config_subtitle": "Lorem Ipsum"
+        "config_subtitle": "Altere o idioma"
     },
     "ponto": {
-        "face_not_found": "Não Identificamos seu rosto :(",
-        "try_again": "Tentar Novamente",
-        "use_digits": "Quero entrar com digitos",
-        "point_successful_entrance": "Entrada registrada",
-        "point_successful_exit": "Saída registrada"
+        "option_1": "Inicío da Jornada",
+        "option_2": "Inicío do Intervalo",
+        "option_3": "Fim do Intervalo",
+        "option_4": "Fim da Jornada",
+        "toast_error": "Ops, algo deu errado :(",
+        "toast_success": "Ponto marcado com sucesso :)"
     },
     "login": {
         "email": "Email",
         "password": "Password",
         "forgot_password": "Esqueci minha senha"
     },
+    "config":{
+        "change_to": "Mudar idioma para",
+        "will_reset": "O MarcaPonto irá reiniciar"
+    },
     "languages": {
         "pt": "Português",
-        "en": "English",
+        "en": "Inglês",
         "fr": "Francês",
         "ger": "Alemão",
         "esp": "Espanhol"

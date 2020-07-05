@@ -10,29 +10,34 @@
         "ponto_title": "Punto",
         "ponto_subtitle": "Ayuda me",
         "login_title": "Login",
-        "login_subtitle": "Admin Access",
-        "sobre_title": "About",
-        "sobre_subtitle": "Info",
+        "login_subtitle": "Acceder a tu cuenta",
+        "sobre_title": "Acerca",
+        "sobre_subtitle": "información",
         "config_title": "Configuración",
-        "config_subtitle": "Lorem Ipsum"
+        "config_subtitle": "Cambiar el idioma"
     },
     "ponto": {
-        "face_not_found": "Não Identificamos seu rosto :(",
-        "try_again": "Tentar Novamente",
-        "use_digits": "Quero entrar com digitos",
-        "point_successful_entrance": "Entrada registrada",
-        "point_successful_exit": "Saída registrada"
+        "option_1": "Comienzo de la jornada laboral",
+        "option_2": "Inicio de rango",
+        "option_3": "Fin de rango",
+        "option_4": "Fin de jornada laboral",
+        "toast_error": "Ops, algo deu errado :(",
+        "toast_success": "Punto anotado exitosamente :)"
     },
     "login": {
         "email": "Email",
         "password": "Password",
         "forgot_password": "Esqueci minha senha"
     },
+    "config":{
+        "change_to": "Mudar el idioma para",
+        "will_reset": "MarcaPonto se reiniciará"
+    },
     "languages": {
-        "pt": "Portuguese",
-        "en": "English",
-        "fr": "French",
-        "ger": "German",
-        "esp": "Spanish"
+        "pt": "Portugués",
+        "en": "Inglés",
+        "fr": "Francés",
+        "ger": "Alemán",
+        "esp": "Español"
     }
 }

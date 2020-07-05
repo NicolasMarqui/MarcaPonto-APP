@@ -10,6 +10,7 @@ import moment from 'moment';
 import localization from "moment/locale/pt-br";
 import Toast from 'react-native-simple-toast';
 import axios from 'axios';
+import { displayInAnotherLanguage } from '../../Functions';
 
 import NoAccess from '../../Components/NoAccess';
 import ModalSuccess from '../../Components/ModalSuccess';
@@ -296,10 +297,10 @@ const Ponto = ({ navigation }) => {
 
                             <WrapperShowRegistros>
                                 {
-                                    TIPOS_REGISTRO.map(r => (
+                                    TIPOS_REGISTRO.map((r,i) => (
                                         <WrapperButtonMarcar onPress={() => marcarPonto(r.id)} key={r.id}>
                                             <TitleSmall>
-                                                {r.title}
+                                                {displayInAnotherLanguage(i)}
                                             </TitleSmall>
                                         </WrapperButtonMarcar>
                                     ))
