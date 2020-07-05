@@ -97,7 +97,7 @@ const Dashboard = ({ navigation }) => {
                         {capitalizeString(currentUsername)}
                     </TitleSmallBlack>
                     <Description>
-                        Aqui vc pode ver todos seus pontos e informações a mais sobre seu perfil
+                        Aqui vc pode ver todos seus pontos e informações a mais sobre seu perfil, {currentUserId}
                     </Description>
                 </TitleArea> :
 

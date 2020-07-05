@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState} from 'react';
 import { Formik } from 'formik';
-import { Wrapper, LogoBehind, TitleArea, Description, FormArea, Input, Frag, LoginButton, LoaderWrapper} from './styles';
+import { Wrapper, LogoBehind, TitleArea, Description, FormArea, Input, Frag, LoginButton, LoaderWrapper, WrapperEsqueci, TextEsqueciConta} from './styles';
 import { TitleBig, TitleSmall, TitleSmallBlack } from '../../../global';
 import LottieView from "lottie-react-native";
 import i18n from '../../Languages/i18n';
@@ -105,6 +105,12 @@ const Login = ({ navigation }) => {
                                         Login
                                     </TitleSmall>
                                 </LoginButton>
+
+                                <WrapperEsqueci onPress={() => navigation.navigate('EsqueciSenha')}>
+                                    <TextEsqueciConta>
+                                        Esqueci minha senha
+                                    </TextEsqueciConta>
+                                </WrapperEsqueci>
                             </Frag>
                         )
                     }

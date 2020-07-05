@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PontoWrapper = styled.SafeAreaView`
     flex: 1;
     padding: 5px 10px;
+    position: relative;
 `
 
 export const SnapPic = styled.TouchableOpacity`

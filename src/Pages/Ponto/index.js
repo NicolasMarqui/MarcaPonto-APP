@@ -8,15 +8,14 @@ import LottieView from "lottie-react-native";
 import AsyncStorage from '@react-native-community/async-storage';
 import moment from 'moment';
 import localization from "moment/locale/pt-br";
+import Toast from 'react-native-simple-toast';
+import axios from 'axios';
 
 import NoAccess from '../../Components/NoAccess';
 import ModalSuccess from '../../Components/ModalSuccess';
 import ModalError from '../../Components/ModalError';
 import { MainContext } from '../../Contexts/MainContext';
-
-const LOADING = require('../../../assets/animations/loading.json');
-const ATENTION = require('../../../assets/animations/atention.json');
-const WORKING = require('../../../assets/animations/working.json');
+import AfterPoint from '../../Components/AfterPoint';
 
 const Ponto = ({ navigation }) => {
     const { modalOpen, setModalOpen } = useContext(MainContext)
@@ -33,9 +32,20 @@ const Ponto = ({ navigation }) => {
     const [ loadingPicture , setLoadingPicture ] = useState(false);
 
     // No camera working
-    const [ isUserLogged, setIsUserLogged ] = useState(false);
+    const [ isUserLogged , setIsUserLogged ] = useState(false);
     const [ checkingForUser , setcheckingForUser ] = useState(true);
     const [ loggedUserID , setLoggedUserID ] = useState('');
+    const [ loggedUserToken , setLoggedUserToken ] = useState('');
+    const [ pontoAttempt, setPontoAttempt ] = useState(false);
+    const [ pontoSuccess  , setPontoSuccess ] = useState(false);
+
+    const LOADING = require('../../../assets/animations/loading.json');
+    const ATENTION = require('../../../assets/animations/atention.json');
+    const WORKING = require('../../../assets/animations/working.json');
+    const SUCCESS = require('../../../assets/animations/success.json');
+    const ERROR = require('../../../assets/animations/error.json');
+
+    const NEW_PONTO_ENDPOINT = 'https://ws-marcaponto.herokuapp.com/api/v1/ponto';
 
     const checkIfUserIsLogged = async () => {
         await AsyncStorage.getItem('userLogged')
@@ -55,10 +65,16 @@ const Ponto = ({ navigation }) => {
                 setLoggedUserID(JSONparse.colaboradorId)
             })
             .catch(err => alert(err))
+
+        await AsyncStorage.getItem('userToken')
+            .then(data => {
+                setLoggedUserToken(data)
+            })
+            .catch(err => alert(err))
     }
 
     const setTime = () => {
-        let time = moment(new Date()).format('h:mm:ss A');
+        let time = moment().format('LTS');
         setcurrentHour(time);
 
         return time;
@@ -91,7 +107,31 @@ const Ponto = ({ navigation }) => {
     }, []);
 
     const marcarPonto = async () => {
-        
+
+        let day = new Date().getDay();
+        let date = moment(new Date()).format(`${day < 10 ? '0' : ''}D/MM/YYYY`);
+        let horario = moment().format('LTS');
+
+        const newPonto = {
+            colaboradorId: loggedUserID,
+            tipoDoRegistroId: 1,
+            data: date.toString(),
+            horario: horario.toString()
+        }
+
+        await axios.post(NEW_PONTO_ENDPOINT, newPonto, { headers: { 'Authorization': loggedUserToken }})
+            .then(response => {
+                setPontoAttempt(true)
+                setPontoSuccess(true)
+                Toast.showWithGravity('Ponto gravado com sucesso :)', Toast.LONG, Toast.CENTER);
+            })
+            .catch(err => {
+                setPontoAttempt(true)
+                setPontoSuccess(false)
+                Toast.showWithGravity('Ops, algo deu errado :(', Toast.LONG, Toast.CENTER);
+            })
+
+            
     }
 
     if(hasPermission === null){
@@ -218,11 +258,27 @@ const Ponto = ({ navigation }) => {
                             </TextHour>
                         </WrapperShowTime>
 
-                        <WrapperButtonMarcar>
-                            <TitleSmall>
-                                Marcar Ponto
-                            </TitleSmall>
-                        </WrapperButtonMarcar>
+                        {
+                            pontoAttempt ? 
+                            <LottieView 
+                                autoPlay
+                                loop={false} 
+                                source={pontoSuccess ? SUCCESS : ERROR} 
+                                style={{
+                                    width: 270,
+                                    height: 270,
+                                }}
+                                onAnimationFinish={() => setPontoAttempt(false)}
+                            />
+                            :
+
+                            <WrapperButtonMarcar onPress={marcarPonto}>
+                                <TitleSmall>
+                                    Marcar Ponto
+                                </TitleSmall>
+                            </WrapperButtonMarcar>
+                        }
+
                     </WrapperUserLogged>
 
                     :
@@ -242,8 +298,6 @@ const Ponto = ({ navigation }) => {
                         <TitleNotLogged>
                             Você precisa se logar
                         </TitleNotLogged>
-
-                        
 
                         <GoToWrapper onPress={() => navigation.navigate('Login')}>
                             <GoToLogin>

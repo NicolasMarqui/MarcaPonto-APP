@@ -71,3 +71,15 @@ export const LoginButton = styled.TouchableOpacity`
 export const LoaderWrapper = styled.View`
     flex: 2;
 `
+export const WrapperEsqueci = styled.TouchableOpacity`
+    width: 100%;
+    margin-top: -30px;
+    justify-content: center;
+    align-items: center;
+`
+
+export const TextEsqueciConta = styled.Text`
+    font-size: 12px;
+    font-weight: 400;
+    color: blue;   
+`

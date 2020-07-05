@@ -11,7 +11,7 @@ import Ponto from './Pages/Ponto';
 import Login from './Pages/Login';
 import Config from './Pages/Config';
 import Dashboard from './Pages/Dashboard';
-import SettingsDashboard from './Pages/SettingsDashboard';
+import EsqueciSenha from './Pages/EsqueciSenha';
 
 const Stack = createStackNavigator();
 
@@ -44,7 +44,7 @@ const Navigation = () => (
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false, title: i18n.t('home.login_title'), headerRight: null}}/>
         <Stack.Screen name="Config" component={Config} options={{ headerShown: true, title: i18n.t('home.config_title'), headerRight: null}}/>
         <Stack.Screen name="Dashboard" component={Dashboard} options={{headerShown: true, title: 'Dashboard'}}/>
-        <Stack.Screen name="SettingsDashboard" component={SettingsDashboard} options={{headerShown: true, title: 'Settings', headerRight: null}}/>
+        <Stack.Screen name="EsqueciSenha" component={EsqueciSenha} options={{headerShown: true, title: 'Recuperar Senha', headerRight: null}}/>
     </Stack.Navigator>
 )
 
