@@ -76,6 +76,7 @@ const Dashboard = ({ navigation }) => {
         console.log(`Token do getAllPoints: ${token}`)
         await axios.get(`${ALL_POINTS_ENDPOINT}/${id}`, { headers: { 'Authorization': token } })
             .then(points => {
+                console.log(points.data)
                 setAllPoints(points.data);
                 setUserPontosLoaded(true);
             })
