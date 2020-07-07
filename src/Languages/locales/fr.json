@@ -3,7 +3,8 @@
     "default":{
         "ponto": "Ponto",
         "login": "Login",
-        "config": "Config"
+        "config": "Config",
+        "about": "Sobre"
     },
     "home": {
         "screen_name_ponto": "Ponto",
@@ -30,6 +31,7 @@
         "forgot_password": "Esqueci minha senha"
     },
     "config":{
+        "title": "Langages",
         "change_to": "Changez la langue en",
         "will_reset": "MarcaPonto va redémarrer"
     },

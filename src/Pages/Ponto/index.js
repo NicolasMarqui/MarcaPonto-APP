@@ -139,6 +139,8 @@ const Ponto = ({ navigation }) => {
             horario: horario.toString()
         }
 
+        console.log(newPonto)
+
         setPontoAttempt(true)
 
         await axios.post(NEW_PONTO_ENDPOINT, newPonto, { headers: { 'Authorization': loggedUserToken }})
@@ -147,6 +149,7 @@ const Ponto = ({ navigation }) => {
                 Toast.showWithGravity('Ponto gravado com sucesso :)', Toast.LONG, Toast.CENTER);
             })
             .catch(err => {
+                console.log(err.response.data)
                 setPontoSuccess(false);
                 Toast.showWithGravity('Ops, algo deu errado :(', Toast.LONG, Toast.CENTER);
             })

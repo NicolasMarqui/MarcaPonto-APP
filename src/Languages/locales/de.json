@@ -3,7 +3,8 @@
     "default":{
         "ponto": "Ponto",
         "login": "Login",
-        "config": "Config"
+        "config": "Config",
+        "about": "Sobre"
     },
     "home": {
         "screen_name_ponto": "Ponto",
@@ -25,6 +26,7 @@
         "toast_success": "Erfolgreich erzielte Punkte :)"
     },
     "config":{
+        "title": "Sprachen",
         "change_to": "Ändern Sie die Sprache in",
         "will_reset": "MarcaPonto wird neu gestartet"
     },

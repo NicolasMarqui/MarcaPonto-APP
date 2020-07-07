@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.TouchableOpacity`
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     flex-direction: row;
     width: 100%;
     justify-content: center;
@@ -34,7 +34,23 @@ export const HourTitle = styled.Text`
     color: #000;
 `
 
+export const SideHourText = styled.Text`
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+`
+
 export const ArrowIcon = styled.View`
     flex: 1;
     align-items: flex-end;
+    margin-right: 15px;
+`
+
+export const Aprovado = styled.View`
+    width: 4px;
+    background-color: ${props => props.aprovado};
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
 `

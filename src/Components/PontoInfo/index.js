@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { Wrapper, IconImage, WrapperText, PontoTitle, HourTitle, ArrowIcon} from './styles';
+import { Wrapper, IconImage, WrapperText, PontoTitle, HourTitle, ArrowIcon, SideHourText, Aprovado} from './styles';
 import moment from 'moment';
 
 const PontoInfo = ({ ponto }) => {
@@ -56,9 +56,17 @@ const PontoInfo = ({ ponto }) => {
                 </PontoTitle>
 
                 <HourTitle>
-                    {horario}
+                    {tipoDoRegistro}
                 </HourTitle>
             </WrapperText>
+
+            <ArrowIcon>
+                <SideHourText>
+                    {horario}
+                </SideHourText>
+            </ArrowIcon>
+
+            <Aprovado aprovado={aprovado ? 'green' : 'red'}></Aprovado>
 
         </Wrapper>
     );

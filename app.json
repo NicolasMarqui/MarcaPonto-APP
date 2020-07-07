@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "marca-ponto",
+    "name": "MarcaPonto",
     "slug": "marca-ponto",
     "platforms": [
       "ios",
@@ -23,6 +23,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.portabilit.marcaponto"
     }
   }
 }

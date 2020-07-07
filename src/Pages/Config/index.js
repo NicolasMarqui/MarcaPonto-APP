@@ -87,7 +87,7 @@ const Config = () => {
 
                 <WrapperOptions>
                     <TitleText>
-                        Idioma
+                        {i18n.t('config.title')}
                     </TitleText>
 
                     <SmallBorder></SmallBorder>
