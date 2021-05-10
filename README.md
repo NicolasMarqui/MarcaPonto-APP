@@ -1,1 +1,1 @@
-![MarcaPonto](https://i.imgur.com/Y8ODpof.png)
+![MarcaPonto](https://i.imgur.com/nl0H1Hj.jpg)
